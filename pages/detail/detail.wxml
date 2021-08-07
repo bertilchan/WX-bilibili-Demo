@@ -1,0 +1,63 @@
+<view class="main">
+  <!-- 公共头部 -->
+  <MyTitle></MyTitle>
+  <!-- 视频详情 -->
+  <view class="video_info">
+    <!-- 视频 -->
+    <video src="{{videoInfo.videoSrc}}" controls autoplay></video>
+    <!-- 视频标题 -->
+    <view class="video_title">
+      <text>{{videoInfo.videoTitle}}</text>
+      <text class="fa fa-angle-down"></text>
+    </view>
+    <!-- 视频相关信息 -->
+    <view class="video_detail">
+      <text class="author">{{videoInfo.author}}</text>
+      <text class="play_count">{{videoInfo.playCount}}次观看</text>
+      <text class="comment_count">{{videoInfo.commentCount}}弹幕</text>
+      <text class="date">{{videoInfo.date}}</text>
+    </view>
+  </view>
+  <!-- 推荐视频 -->
+  <view class="other_list">
+    <navigator wx:for="{{othersList}}" wx:key="{{index}}" class="item_other">
+      <!-- 图片容器 -->
+      <view class="other_img_wrap">
+        <image src="{{item.imgSrc}}" mode="widthFix"></image>
+      </view>
+      <!-- 视频详情 -->
+      <view class="other_info">
+        <!-- 标题 -->
+        <view class="other_title">{{item.title}}</view>
+        <!-- 播放量和评论 -->
+        <view class="other_detail">
+          <text class="play_count">{{item.playMsg}}次观看</text>
+          <text class="comment_count">{{item.commentCount}}弹幕</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <!-- 评论列表 -->
+  <view class="comment-wrap">
+      <view class="comment-title">
+        评论( {{commentData.commentTotalCount}} )
+      </view>
+      <view class="comment-list">
+        <view class="comment-item" wx:for="{{commentData.commentList}}" wx:key="{{index}}">
+          <view class="comment-user">
+            <image src="{{item.userIconSrc}}" mode="widthFix"></image>
+          </view>
+          <view class="comment-info">
+            <view class="comment-detail">
+              <text class="author">{{item.username}}</text>
+              <text class="date">{{item.commentDate}}</text>
+            </view>
+            <view class="comment-content">
+              {{item.commentInfo}}
+            </view>
+          </view>
+        </view>
+        <text style="display:flex;justify-content: center;font-size: 24rpx">我也是有底线的 ~</text>
+      </view>
+  </view>
+</view>

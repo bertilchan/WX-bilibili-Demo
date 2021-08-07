@@ -1,0 +1,6 @@
+@import "styles/fontawesome.wxss";
+
+/* 暂时不支持使用 * 代表所有 */
+page,view,image,swiper-item,navigator,video {
+  box-sizing: border-box;
+}
